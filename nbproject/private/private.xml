@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>member_manager/index.php</url>
+            <bookmark id="1">
+                <name/>
+                <line>8</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/add_investment_action_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/add_member_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/signup_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/main.css</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/profile.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/manage_members.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/confirm_delete_member.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/add_group_id_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/model/investment_db.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/model/user_db.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/errors/database_error.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/model/database.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/login_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/home_page_user.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/user_manager/index.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/member_reporting.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/logout_message.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/messaging.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/investment_action_confirmation.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/home_page_admin.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/view/update_member_form.php</file>
+            <file>file:/Applications/XAMPP/htdocs/common_cents/index.php</file>
+        </group>
+    </open-files>
+</project-private>
