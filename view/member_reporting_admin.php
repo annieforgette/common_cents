@@ -118,19 +118,15 @@
         window.onload = function () {
 
         var chart = new CanvasJS.Chart("chartContainer", {
-                theme: "light2",
                 title: {
                         text: "Actualized Gains/Losses over Time"
                 },
                 axisY: {
-                        titleFontColor: "#22487B",
                         title: "Actualized Gains/Losses"
                 },
                 data: [{
-                        titleFontColor: "#22487B",
                         markerColor: "#53682B",
-                        lineColor: "#53682B",
-                        markerSize: 8,
+                        markerSize: 10,
                         type: "line",
                         dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
                 }]
@@ -138,21 +134,16 @@
         chart.render();
         
         var chart = new CanvasJS.Chart("chartContainer2", {
-                theme: "light2",
                 title: {
-                
                         text: "Unrealized Gains/Losses over Time"
                 },
                 axisY: {
-                        titleFontColor: "#22487B",
                         title: "Unrealized Gains/Losses"
                 },
                 data: [{
-                        
                         markerColor: "#53682B",
-                        lineColor: "#53682B",
-                        markerSize: 8,
-                        type: "line",
+                        markerSize: 10,
+                        type:"line",
                         dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
                 }]
         });
@@ -179,23 +170,8 @@
                 <input id = "button" type="submit" value ="Logout"><br><br></li>
                 </form>
         </ul><br><br>
-            <form action="../user_manager/" method="post">
-                <input type="hidden" name="action" value="generate_reporting">
-                
-                <input type="hidden" name="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
-                <input id = "button" type="submit" value ="Update Reporting"><br><br></li>
-            </form>
         <div>
-            <table style = "margin-left:150 ;margin-right:150;">
-            <tr>
-                <label id = 'label'> Latest Update from your Group Admin: </label>
-            </tr>
-            <tr>
-                <td><?php echo $latest_investment_message; ?></td>
-            </tr></table>
-         </div>
-        <div>
-            <label id = "label">Your Percent of Group Earnings: </label>
+            <label id = "label">Percent of Group Earnings: </label>
             <p id = id = "label"><?php echo $perc_profit_basis_formatted; ?>%</p><br>
             
             <label id = "label">Latest Realized Earnings/Losses: </label>
@@ -206,21 +182,14 @@
             <label id = "label">All time Realized Earnings/Losses: </label>
             <p>$<?php echo $all_time; ?></p>
             
-            <div id="chartContainer" style="height: 250px; width: 40%; margin-left:auto; margin-right:auto;"></div>
-             <div id="chartContainer2" style="height: 250px; width: 40%; margin-left:auto; margin-right:auto;"></div>
+            <div id="chartContainer" style="height: 370px; width: 50%; margin-left:auto; margin-right:auto;"></div>
+             <div id="chartContainer2" style="height: 370px; width: 50%; margin-left:auto; margin-right:auto;"></div>
             <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </div>
-     
-            <ul id = "bottomNavBar">
-
-                <li><input id = "button" type="submit" value ="View Reporting"></li>
-                <li>
-                <form  id = "form1" action="../user_manager/" method="post">
-                       <input type="hidden" name="action" value="get_conversations">
-                       <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
-                       <input id = "button" type="submit" value ="Messaging"><br><br>
-                </form>
-                </li>
-            </ul>
+        <div><form  id = "form2" action="../user_manager/" method="post">
+                <input type="hidden" name="action" value="list_group_members_by_username">
+                <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
+                <input id = "button" type="submit" value ="Return to Members">
+         </form><div>
         </div>
    </body>

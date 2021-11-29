@@ -27,7 +27,7 @@
             background-color: #F6F6F6;
         }
       </style>
-    
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </head>
     <body>
             <div><img src="images/logo.png" alt="Common Cents Logo" height="125"></div>

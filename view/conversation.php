@@ -1,4 +1,21 @@
  <head>
+     <?php
+        function getProperColor($message)
+        {
+            if ($message['sent_by'] != $_SESSION['user_name'])
+                return '#22487B';
+            else
+                return '#53682B';
+        }
+        
+        function getTextAlign($message)
+        {
+            if ($message['sent_by'] != $_SESSION['user_name'])
+                return 'left';
+            else
+                return 'right';
+        }
+    ?>
         <style>
         #text{
 
@@ -10,8 +27,10 @@
 	}
 
         div {
-          margin-top: 30px;
           text-align: center;
+          margin: auto;
+          width: 50%;
+          padding: 10px;
         }
         img {
             padding-top:10px;
@@ -68,10 +87,12 @@
         }
         
         #topNavBar {
-	margin: 10px;
-	width: 100%;
 	font-family: sans-serif;
         height: 60px;
+        text-align: center;
+          margin: auto;
+          width: 100%;
+          padding: 10px;
         }
         
         #topNavBar li {
@@ -135,10 +156,7 @@
             border: 0px;
         }
       </style>
- </head>
-<main>
-    <div>
-    <ul id = "topNavBar">
+      <ul id = "topNavBar" >
         <li><a href="../view/profile.php"><img src="../images/profile.png" height="60px"></a></li>
             <li>
                 <form  id = "form1" action="../user_manager/" method="post">
@@ -152,53 +170,33 @@
                 <input type="hidden" name="action" value="logout">
                 <input id = "button" style="background-color: #F6F6F6; color: #22487B" type="submit" value ="Logout"><br><br></li>
                 </form>
-    </ul></div>
-    <section> <div>
-        <!-- display a table of users -->
-        <br><br>
-        <table style = "margin:40px">
-            <tr>
-                <th> First Name </th>
-                <th> Last Name </th>
-                <th> Username </th>
-                <th> Email </th>
-                <th> Initial Investment </th>
-                <th> &nbsp; </th>
-                <th> &nbsp; </th>
-                <th> &nbsp; </th>
-            </tr>
-            <?php foreach ($users as $user) : ?>
-            <tr>
-                <td><?php echo $user['first_name']; ?></td>
-                <td><?php echo $user['last_name']; ?></td>
-                <td><?php echo $user['user_name']; ?></td>
-                <td><?php echo $user['email']; ?></td>
-                <td><?php echo $user['initial_investment']; ?></td>
+    </ul>
+    <section> 
+        <br> <br>
+        <div><h1>Your Conversation</h1> </div>
+            <?php foreach ($messages as $message) : ?>
                 
-                 <!-- Create delete product form -->
-                <td><form action="." method="post">
-                        <input type = "hidden" name ="action" value ="display_confirm_delete_member">
-                        <input type = "hidden" name ="user_name" value="<?php echo $user['user_name']; ?>">
-                        <input id="button" style ="padding: 10px;  border-radius: 25px;" type ="submit" value="Delete">
-                </form></td>
-                
-                 <!-- Create delete product form -->
-                <td><form action="." method="post">
-                        <input type = "hidden" name ="action" value ="display_update_member_form">
-                        <input type = "hidden" name ="user_name" value="<?php echo $user['user_name']; ?>">
-                        <input id="button" style ="padding: 10px;  border-radius: 25px;"type ="submit" value="Update">
-                </form></td>
-                
-                <td><form action="." method="post">
-                        <input type = "hidden" name ="action" value ="generate_reporting_admin">
-                        <input type = "hidden" name ="user_name" value="<?php echo $user['user_name']; ?>">
-                        <input id="button" style ="padding: 10px;  border-radius: 25px;" type ="submit" value="View Reporting">
-                </form></td>
-                    
-            </tr>
+                <?php $color = getProperColor($message)?>
+                <?php $align = getTextAlign($message)?>
+                <div style='background-color: <?php echo $color;?>; padding:10px; text-align: <?php echo $align;?>; margin-bottom: 30px; border-radius: 0px 40px;'>
+                <label id = "label" style='color: white;'><?php echo $message['message']; ?></label>
+                <p style='color: white; font-size: 12px; font-family: futura;'><?php echo $message['date']; ?></p>
+                </div> 
             <?php endforeach; ?>
-        </table>
         </div>
-            <a id='button' style = 'margin-top: 20px; margin-left:40px;' href="../view/add_member_form.php">Add Group Member</a>
+        <div>
+                <form action="." method="post">
+                    <input type = "hidden" name ="action" value ="display_start_new_conversation_form">
+                    <input type = "hidden" name ="other_user" value="<?php echo $message['sent_by']; ?>">
+                    <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
+                    <input type ="submit" id = "button" value="Reply">
+                </form> 
+        </div>
+        <div><form  id = "form2" action="../user_manager/" method="post">
+                <input type="hidden" name="action" value="get_conversations">
+                <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
+                <input id = "button" type="submit" value ="Return to Messages">
+         </form></div>
+
     </section>
-</main>
+ </head>

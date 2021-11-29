@@ -53,7 +53,7 @@
                 <input id = "text" type="text" name ="actualized_gains_losses"><br><br>
 
                 <label id="label">Unrealized Equity Gains/Losses:</label>
-                <input id = "text" type="password" name ="unrealized_gains_losses"><br><br>
+                <input id = "text" type="text" name ="unrealized_gains_losses"><br><br>
 
                 <label id="label">Message to Group:</label>
                 <input id = "text" type="text" name ="investment_message"><br><br>

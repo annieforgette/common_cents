@@ -22,12 +22,27 @@
     {
         global $db;
         $query = 'SELECT * FROM investments
-                  WHERE group_id = :group_id';
+                  WHERE group_id = :group_id
+                    ORDER BY date desc
+                    LIMIT 1';
         $statement = $db->prepare($query);
         $statement->bindValue(':group_id', $group_id); 
         $statement->execute();
         $investment = $statement->fetch();
         $statement->closeCursor();
         return $investment;
+    }
+    
+    function get_all_investment_updates($group_id)
+    {
+        global $db;
+        $query = 'SELECT * FROM investments
+                  WHERE group_id = :group_id';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':group_id', $group_id); 
+        $statement->execute();
+        $investment_updates = $statement->fetchAll();
+        $statement->closeCursor();
+        return $investment_updates;
     }
 ?>

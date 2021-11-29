@@ -104,7 +104,7 @@
         {
         background-color: #22487B;
         }
-        #bottomNavBar {
+        #bottomNavBar a {
         display:block;
 	padding:3px;
 	text-decoration:none;  
@@ -119,43 +119,35 @@
         }
       </style>
       
-        <title>Common Cents</title>
-        <div>
+        <title>Start New Conversation</title>
+<main>
+    <div>
+<h1>Send New Message</h1>
+
+        <form action="../user_manager/" method="post">
+            <input type="hidden" name="action" value="start_new_conversation">
         
-        <ul id = "topNavBar">
-            <li><a href="../view/profile.php"><img src="../images/profile.png" height="60px"></a></li>
-            <li><a href="../view/home_page_admin.php"><img src="../images/logo.png" height="60px"></a></li>
-            <li>
-                <form  id = "form1" action="../user_manager/" method="post">
-                <input type="hidden" name="action" value="logout">
-                <input id = "button" style="background-color: #F6F6F6; color: #22487B" type="submit" value ="Logout"><br><br>
+            <label id="label">Username: </label>
+
+        <select name = 'other_user'>
+            <?php foreach ($members as $member): ?>
+            <option value="<?= $member['user_name']; ?>"><?php echo $member['user_name']?></option>
+            <?php endforeach; ?>
+        </select><br><br>
+        
+        <label id="label">Message:</label>
+        <input type="text" name="message"><br>
+        
+        <input type ='hidden' name='user_name' value="<?php echo $_SESSION["user_name"]; ?>">
+        <label>&nbsp;</label>
+        
+        <input id="button" style="margin: 20;"type="submit" value="Send Message"><br>
+    </form>
+
+    <form  id = "form2" action="../user_manager/" method="post">
+                <input type="hidden" name="action" value="get_conversations">
+                <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
+                <input id = "button" type="submit" value ="Back"><br><br>
                 </form>
-            </li>   
-        </ul>
-            
-            <h1>Hello, welcome to Common Cents!</h1>
-        <form id = "form2" action="../user_manager/" method="post">
-        <input type="hidden" name="action2" value="add_investment_action">
-        <a id="button" style="padding: 60px; margin-bottom: 20px" href="../view/add_investment_action_form.php">Add Investment Action</a>
-        <ul id = "bottomNavBar">
-            <li><a id="button" href="../view/home_page_admin.php">Investments</a></li>
-            
-            <li><form  id = "form2" action="../user_manager/" method="post">
-                <input type="hidden" name="action" value="list_group_members">
-                <input type = "hidden" name ="group_id" value="<?php echo $_SESSION["group_id"]; ?>">
-                <input id = "button" type="submit" value ="Members"><br><br>
-                </form>
-             </li>
-                
-            <li>
-                <form  id = "form1" action="../user_manager/" method="post">
-                       <input type="hidden" name="action" value="get_conversations">
-                       <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
-                       <input id = "button" type="submit" value ="Messaging"><br><br>
-                </form>
-            </li>
-        </ul>
-        </div>
-    </head>
-    <body>
-   </body>
+    </div>
+</main>

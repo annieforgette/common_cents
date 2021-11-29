@@ -122,8 +122,14 @@
             </form>
             <ul id = "bottomNavBar">
 
-                <li><a id="button" href="../view/home_page_user.php">Reporting</a></li>
-                <li><a id="button" href="../view/messaging.php">Messages</a></li>
+                <li><input id = "button" type="submit" value ="View Reporting"></li>
+                <li>
+                <form  id = "form1" action="../user_manager/" method="post">
+                       <input type="hidden" name="action" value="get_conversations">
+                       <input type = "hidden" name ="user_name" value="<?php echo $_SESSION["user_name"]; ?>">
+                       <input id = "button" type="submit" value ="Messaging"><br><br>
+                </form>
+                </li>
             </ul>
         </div>
     </head>
